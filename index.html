@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nyrion - Home</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  
+/* --- Hero Section --- */
+.hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  text-align: center;
+  background: linear-gradient(-45deg, #2c003e, #6a0dad, #1a001a, #3d0073);
+  background-size: 400% 400%;
+  color: white;
+  padding: 0 1rem;
+  animation: gradientBG 15s ease infinite;
+  position: relative;
+  overflow: hidden;
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  animation: fadeInUp 1s ease-out;
+}
+
+.hero p {
+  font-size: 1.3rem;
+  margin-bottom: 2rem;
+  animation: fadeInUp 1.5s ease-out;
+}
+
+.hero button {
+  padding: 0.8rem 2rem;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 12px;
+  background: #0a0a0a;
+  color: #e0c3fc;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 0 15px #6a0dad66;
+}
+
+.hero button:hover {
+  background: #6a0dad;
+  color: white;
+  box-shadow: 0 0 25px #e0c3fcaa;
+}
+
+/* --- Floating Particles --- */
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: radial-gradient(#e0c3fc55, transparent 70%);
+  background-repeat: repeat;
+  background-size: 50px 50px;
+  animation: moveBG 20s linear infinite;
+}
+
+@keyframes moveBG {
+  0% { background-position: 0 0; }
+  100% { background-position: 100px 100px; }
+}
+
+/* --- Versions Section --- */
+.versions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin: 3rem 1rem;
+}
+
+.version-card {
+  background: #1a001a;
+  border: 2px solid #6a0dad;
+  border-radius: 16px;
+  width: 250px;
+  padding: 1.5rem;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.version-card:hover {
+  transform: translateY(-10px) scale(1.05);
+  box-shadow: 0 0 25px #6a0dadaa, 0 0 50px #e0c3fc44;
+}
+
+.version-card h3 {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  color: #e0c3fc;
+  text-shadow: 0 0 5px #6a0dad;
+}
+
+.version-card a {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.5rem 1.2rem;
+  border-radius: 10px;
+  background: #6a0dad;
+  color: white;
+  text-decoration: none;
+  transition: 0.3s;
+  box-shadow: 0 0 10px #6a0dad88;
+}
+
+.version-card a:hover {
+  background: #3d0073;
+  box-shadow: 0 0 20px #e0c3fcaa;
+}
+
+/* --- Latest Release --- */
+.latest-release {
+  background: #0a0a0a;
+  border-top: 2px solid #6a0dad;
+  border-bottom: 2px solid #6a0dad;
+  padding: 2rem 1rem;
+  text-align: center;
+  box-shadow: 0 0 20px #6a0dad22 inset;
+  margin-top: -2rem;
+}
+
+.latest-release h2 {
+  margin-bottom: 1rem;
+  color: #e0c3fc;
+  text-shadow: 0 0 5px #6a0dad;
+}
+
+.latest-release a {
+  color: #e0c3fc;
+  text-decoration: none;
+  font-weight: bold;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { text-shadow: 0 0 5px #e0c3fc; }
+  50% { text-shadow: 0 0 15px #6a0dad; }
+  100% { text-shadow: 0 0 5px #e0c3fc; }
+}
+
+/* --- About Me --- */
+footer {
+  text-align: center;
+  padding: 2rem;
+  background: #1a001a;
+  margin-top: 2rem;
+}
+
+footer a {
+  color: #e0c3fc;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* --- Animations --- */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+  .versions { flex-direction: column; align-items: center; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Nyrion</h1>
+  <nav style="display:flex;justify-content:center;gap:2rem;margin:1rem 0;">
+    <a href="index.html">Home</a>
+    <a href="releases.html">Releases</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h1>Welcome to Nyrion</h1>
+  <p>The ultimate multi-version project with live release tracking.</p>
+  <button onclick="window.location.href='releases.html'">View Releases</button>
+</section>
+
+<section class="latest-release" id="latestRelease">
+  <h2>Latest Nyrion Release</h2>
+  <p>Loading latest release...</p>
+</section>
+
+<section class="versions" id="versions">
+  <!-- Version cards generated dynamically -->
+</section>
+
+<footer>
+  <h3>About Me</h3>
+  <p>Check out my GitHub profile: <a href="https://github.com/PingunixDevelopments" target="_blank">PingunixDevelopments</a></p>
+</footer>
+
+<script>
+// --- Latest Release ---
+const latestReleaseContainer = document.getElementById('latestRelease');
+async function fetchLatestRelease() {
+  try {
+    const res = await fetch('https://api.github.com/repos/PingunixDevelopments/Nyrion/releases');
+    const releases = await res.json();
+    if (Array.isArray(releases) && releases.length > 0) {
+      const latest = releases[0];
+      latestReleaseContainer.innerHTML = `
+        <h2>Latest Nyrion Release</h2>
+        <p><strong>${latest.name || latest.tag_name}</strong> - ${new Date(latest.published_at).toLocaleDateString()}</p>
+        <p>${latest.body ? latest.body.substring(0, 200) + "..." : ""}</p>
+        <a href="${latest.html_url}" target="_blank">View Release on GitHub</a>
+      `;
+    }
+  } catch(err) { console.error(err); latestReleaseContainer.innerHTML="<p>Error loading release.</p>"; }
+}
+fetchLatestRelease();
+setInterval(fetchLatestRelease, 60000);
+
+// --- Version Cards ---
+const versions = [
+  { name: "Main", repo: "Nyrion" },
+  { name: "Grain", repo: "Grain--Nyrion" },
+  { name: "Aeon", repo: "Nyrion-Aeon" },
+  { name: "Atlas", repo: "Nyrion-LTS-Atlas" },
+  { name: "Series 1", repo: "Nyrion-1-Series" }
+];
+
+const versionsContainer = document.getElementById('versions');
+versions.forEach(v => {
+  const card = document.createElement('div');
+  card.className = 'version-card';
+  card.innerHTML = `
+    <h3>${v.name}</h3>
+    <p>Explore live releases for the ${v.name} branch.</p>
+    <a href="releases.html#${v.repo}">View Releases</a>
+  `;
+  versionsContainer.appendChild(card);
+});
+</script>
+
+</body>
+</html>

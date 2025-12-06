@@ -231,13 +231,6 @@ async function fetchLatestRelease() {
 fetchLatestRelease();
 setInterval(fetchLatestRelease, 60000);
 
-// --- Version Cards ---
-const versions = [
-  { name: "Main", repo: "Nyrion" },
-  { name: "Atlas", repo: "Nyrion-LTS-Atlas" },
-  { name: "Grain", repo: "Grain--Nyrion" },
-];
-
 const versionsContainer = document.getElementById('versions');
 versions.forEach(v => {
   const card = document.createElement('div');
